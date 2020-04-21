@@ -11,12 +11,12 @@
 			<strong class="col-5 text-center">{{ player.name}}</strong>
 			<small class="col-2 text-center">{{ player.cardCount}}</small>
 			<span *ngIf="player.prizeCards.length>0" class="col-5 prizes text-center">
-          <span *ngFor="let card of player.prizeCards">
+          <span class="card" *ngFor="let card of player.prizeCards">
             <app-card-render [card]="card"></app-card-render>
           </span>
 			</span>
 			<span *ngIf="player.prizeCards.length==0" class="col-5 blinds text-center">
-          <span *ngFor="let card of player.blindCards">
+          <span class="card" *ngFor="let card of player.blindCards">
            ?
           </span>
 			</span>
