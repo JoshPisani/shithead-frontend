@@ -3,3 +3,9 @@
   margin: 1em;
   padding: 1em;
 }
+.selected {
+    background-color: lightgrey;
+}
+.disabled {
+    background-color: lightpink;
+}
