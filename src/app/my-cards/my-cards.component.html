@@ -14,7 +14,7 @@
 	</div>
 	<div *ngIf="!isPickingBlindCard()" class="row text-center">
 		<div class="col-2" *ngFor="let card of cardsForSelection()">
-			<a (click)="selectCard(card)" href="javascript:void(0);"
+			<a class="card" (click)="selectCard(card)" href="javascript:void(0);"
 				[ngClass]="{'selected': isSelected(card.id), 'disabled': !canSelectCard(card)}">
 				<app-card-render [card]="card"></app-card-render>
 			</a>

@@ -1,5 +1,5 @@
 <div *ngIf="!gameService.isCreating()" class="game-id">
-game id: {{gameService.spectateContext.game.id}}
+	game id: {{gameService.spectateContext.game.id}}
 </div>
 <div *ngIf="gameService.isCreating()">
 	<app-creating [gameService]="gameService"> </app-creating>
@@ -19,7 +19,7 @@ game id: {{gameService.spectateContext.game.id}}
 	<h1>Game over</h1>
 	<h2>My name is {{gameService.context.game.shithead}} and I am a shithead</h2>
 	<p>Last card:</p>
-	<p>
+	<p class="card">
 		<app-card-render [card]="gameService.context.game.lastFourCards[0]"></app-card-render>
 	</p>
 </div>

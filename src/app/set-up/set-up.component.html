@@ -2,7 +2,7 @@
 	<h3 class="text-center">Choose 3</h3>
 	<div class="row set-up">
 		<div class="col-4" *ngFor="let card of gameService.context.player.cards">
-			<a href="javascript:void(0);" (click)="cardClicked(card.id)"
+			<a class="card" href="javascript:void(0);" (click)="cardClicked(card.id)"
 				[ngClass]="{'selected': isSelected(card.id)}">
 				<app-card-render [card]="card"></app-card-render>
 			</a>
