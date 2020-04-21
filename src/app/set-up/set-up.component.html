@@ -1,0 +1,23 @@
+<div *ngIf="!hasSubmitted()">
+	<h3 class="text-center">Choose 3</h3>
+	<div class="row set-up">
+		<div class="col-4" *ngFor="let card of gameService.context.player.cards">
+			<a href="javascript:void(0);" (click)="cardClicked(card.id)"
+				[ngClass]="{'selected': isSelected(card.id)}">
+				<app-card-render [card]="card"></app-card-render>
+			</a>
+		</div>
+	</div>
+	<button (click)="setPrizeCards()" [disabled]="selected.length<3"class="btn btn-primary btn-lg btn-block" type="button">Select</button>
+</div>
+<div *ngIf="hasSubmitted()">
+	<h3 class="text-center">Waiting for other players</h3>
+	<ul class="list-group">
+		<li class="list-group-item" *ngFor="let player of gameService.context.game.players">
+			<div class="row"> <span class="col-10">{{ player.name}}</span>
+				<span *ngIf="player.prizeCards.length>0" class="col-2">ready</span>
+			</div>
+		</li>
+	</ul>
+</div>
+<app-messages [gameService]="gameService"> </app-messages>

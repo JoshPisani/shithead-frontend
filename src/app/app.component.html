@@ -1,0 +1,22 @@
+<div *ngIf="gameService.showOverlay" class="overlay">
+	<img class="centred" src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Youtube_loading_symbol_1_(wobbly).gif">
+</div>
+	<div (click)="gameService.error = null" *ngIf="gameService.error" class="text-center error alert alert-danger"
+		role="alert">
+		<p><strong>{{gameService.error}}</strong></p>
+		<small>tap to dismiss</small>
+	</div>
+	<div (click)="rejoinCode()" *ngIf="gameService.rejoinCode" class="text-center error alert alert-warning"
+		role="alert">
+		<p><strong>Rejoin code: {{gameService.rejoinCode}}</strong></p>
+		<small>tap to copy and dismiss</small>
+	</div>
+	<img *ngIf="gameService.updating" class="updating" src="https://media.giphy.com/media/VUqw0plWqhVHq/giphy.gif">
+	<div class="game container">
+		<div class="row justify-content-md-center">
+			<div class="col">
+				<app-menu *ngIf="!gameService.context" [gameService]="gameService"></app-menu>
+				<game *ngIf="gameService.context && !isSpectating" [gameService]="gameService"></game>
+        <app-spectate *ngIf="gameService.spectateContext && isSpectating" [gameService]="gameService"></app-spectate>
+			</div>
+		</div>

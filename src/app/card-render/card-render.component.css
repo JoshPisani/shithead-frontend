@@ -1,0 +1,14 @@
+.diamonds, .hearts {color:red}
+
+.clubs, .spades {color:black}
+
+.joker {color:blue}
+
+.card-render {
+    display: inline-block;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    width: 100%;
+    padding: 2em 0em;
+    text-align: center;
+}

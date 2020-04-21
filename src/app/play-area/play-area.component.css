@@ -1,0 +1,14 @@
+.top-card .card {
+  font-size: 2.5em;
+  padding: 20% 0%
+}
+
+.previous-cards .card {
+  padding: 10% 0%;
+  margin: 5% 0%
+}
+
+.details {
+  padding-left: 0px;
+  padding-right: 0px
+}

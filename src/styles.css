@@ -1,0 +1,19 @@
+/* Add application styles & imports to this file! */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.game {
+  max-width: 500px;
+  margin: 0 auto;
+  padding-top: 10px;
+  margin-bottom: 25%;
+}
+
+.set-up .card-render {
+  margin-bottom: 1em;
+}
+.selected .card-render {
+    background-color: lightgrey;
+}
+.disabled .card-render {
+    background-color: lightpink;
+}

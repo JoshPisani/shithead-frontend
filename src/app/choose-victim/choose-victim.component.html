@@ -1,0 +1,11 @@
+<h3 class="text-center">Choose victim</h3>
+<form class="form-horizontal" [formGroup]="victimForm" (ngSubmit)="onSubmit()">
+
+	<div class="row form-group">
+		<select formControlName="victimId" class="custom-select form-control">
+  <option value="x">select</option>
+  <option *ngFor="let opt of options()" [value]="opt.id">{{opt.name}}</option>
+</select>
+	</div>
+	<button *ngIf="showButton()" class="btn btn-primary btn-lg btn-block" type="submit">{{buttonText()}}</button>
+</form>

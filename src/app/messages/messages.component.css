@@ -1,0 +1,40 @@
+.messages {
+    overflow-y: scroll;
+    border-top: 1px solid;
+    padding: 0px;
+    margin: 0px;
+    margin-top: 1em;
+    height: 6em;
+    border-bottom: 1px solid;
+}
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.message {
+  padding: 0px;
+  padding-left: 1em;
+  font-family: monospace;
+}
+
+.joker {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+.update {
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+.info {
+    color: #818182;
+    background-color: #fefefe;
+    border-color: #fdfdfe;
+}
+.card {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+}

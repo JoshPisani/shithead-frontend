@@ -1,0 +1,39 @@
+	<h3 class="text-center">Creating</h3>
+  <form class="form-horizontal" [formGroup]="creationForm" (ngSubmit)="onSubmit()">
+	<div class="row form-group">
+		<label class="control-label col-3">Game ID</label>
+		<div class="col-3">
+			<p>{{gameService.context.game.id}}</p>
+		</div>
+		<div class="col-6">
+			<button *ngIf="gameService.isOwner()" [disabled]="gameService.context.game.players.length<2" class="btn btn-primary btn-block" type="submit">Start Game</button>
+		</div>
+	</div>
+	<div *ngIf="gameService.isOwner()">
+		<div class="row form-group">
+			<label class="control-label col-6" for="decks">Decks</label>
+			<div class="col-6">
+				<input min="1" class="form-control" id="decks" type="number" formControlName="decks">
+              </div>
+			</div>
+			<div class="row form-group">
+				<label class="control-label col-6" for="jokers">Jokers</label>
+				<div class="col-6">
+					<input min="0" class="form-control" id="jokers" type="number" formControlName="jokers">
+              </div>
+				</div>
+			</div>
+</form>
+<h6>Players</h6>
+<ul class="list-group">
+	<li class="list-group-item" *ngFor="let player of gameService.context.game.players">
+		<span class="col-2">{{ player.id + 1 }}</span>
+		<span class="col-10">{{ player.name}}
+      <small style="float:right" *ngIf="player.id == gameService.context.game.dealer">dealer</small>
+      <small style="float:right" *ngIf="gameService.isOwner() && player.id != gameService.context.game.dealer">
+        	<a href="javascript:void(0);" (click)="setDealer(player.id)">make dealer</a>
+      </small>
+		</span>
+	</li>
+</ul>
+<app-messages [gameService]="gameService"> </app-messages>

@@ -1,0 +1,43 @@
+<div class="container">
+	<div class="row">
+		<h4 class="col-4">{{title()}}</h4>
+		<div class="col-4">
+			<button *ngIf="gameService.isMyTurn() && gameService.context.game.pileSize>0 && !isPickingBlindCard()"
+     class="btn btn-secondary btn-block" (click)="takePile()">take pile</button>
+		</div>
+		<div class="col-4">
+			<button *ngIf="gameService.isMyTurn() && !isPickingBlindCard()" [disabled]="selected.length<1"
+     class="btn btn-primary btn-block" (click)="playCards()">play</button>
+			<button *ngIf="gameService.isMyTurn() && isPickingBlindCard()" [disabled]="selectedBlindCard===null"
+     class="btn btn-primary btn-block" (click)="revealBlindCard()">reveal</button>
+		</div>
+	</div>
+	<div *ngIf="!isPickingBlindCard()" class="row text-center">
+		<div class="col-2" *ngFor="let card of cardsForSelection()">
+			<a (click)="selectCard(card)" href="javascript:void(0);"
+				[ngClass]="{'selected': isSelected(card.id), 'disabled': !canSelectCard(card)}">
+				<app-card-render [card]="card"></app-card-render>
+			</a>
+		</div>
+	</div>
+	<div *ngIf="gameService.isMyTurn() && isPickingBlindCard()" class="row text-center">
+		<div class="col-4">
+			<a *ngIf="hasBlindCard(0)" (click)="selectBlindCard(0)" href="javascript:void(0);" class="blind-card"
+				[ngClass]="{'selected': selectedBlindCard == 0}">
+				pick me
+			</a>
+		</div>
+		<div class="col-4">
+			<a *ngIf="hasBlindCard(1)" (click)="selectBlindCard(1)" href="javascript:void(0);" class="blind-card"
+				[ngClass]="{'selected': selectedBlindCard == 1}">
+				pick me
+			</a>
+		</div>
+		<div class="col-4">
+			<a *ngIf="hasBlindCard(2)" (click)="selectBlindCard(2)" href="javascript:void(0);" class="blind-card"
+				[ngClass]="{'selected': selectedBlindCard == 2}">
+				pick me
+			</a>
+		</div>
+	</div>
+</div>

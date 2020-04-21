@@ -1,0 +1,35 @@
+p {
+  font-family: Lato;
+}
+.overlay {
+    z-index: 99;
+    background-color: black;
+    opacity: 50%;
+    position: absolute;
+    height: 150%;
+    width: 100%;
+}
+.updating {
+    position: fixed;
+    max-width: 10%;
+    top: 2px;
+    right: 2px;
+}
+.centred {
+  position: absolute;
+  margin: auto;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  max-width: 15%;
+}
+.error {
+  z-index: 99;
+  position: absolute;
+  margin: auto;
+  width: 90%;
+  top: 10px;
+  left: 0px;
+  right: 0px;
+}

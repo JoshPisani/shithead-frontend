@@ -1,0 +1,25 @@
+<div *ngIf="!gameService.isCreating()" class="game-id">
+game id: {{gameService.context.game.id}}
+</div>
+<div *ngIf="gameService.isCreating()">
+	<app-creating [gameService]="gameService"> </app-creating>
+</div>
+<div *ngIf="gameService.isSetUp()">
+	<app-set-up [gameService]="gameService"> </app-set-up>
+</div>
+<div *ngIf="gameService.isRunning() || gameService.isJoker()">
+	<app-play-area [gameService]="gameService"> </app-play-area>
+	<hr>
+	<app-my-cards *ngIf="!gameService.isChoosingVictim()" [gameService]="gameService"> </app-my-cards>
+	<app-choose-victim *ngIf="gameService.isChoosingVictim()" [gameService]="gameService"> </app-choose-victim>
+	<hr>
+	<app-player-list [gameService]="gameService"> </app-player-list>
+</div>
+<div class="text-center" *ngIf="gameService.isGameOver()">
+	<h1>Game over</h1>
+	<h2>My name is {{gameService.context.game.shithead}} and I am a shithead</h2>
+	<p>Last card:</p>
+	<p>
+		<app-card-render [card]="gameService.context.game.lastFourCards[0]"></app-card-render>
+	</p>
+</div>

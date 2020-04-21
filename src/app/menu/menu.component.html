@@ -1,0 +1,41 @@
+<form class="form-horizontal" [formGroup]="startForm" (ngSubmit)="onSubmit()">
+	<h1 class="text-center">{{title}}</h1>
+	<ul class="nav nav-tabs">
+		<li class="nav-item">
+			<a (click)="option='newGame'" class="nav-link" [ngClass]="{'active': option=='newGame'}"
+				href="javascript:void(0);">New</a>
+		</li>
+		<li class="nav-item">
+			<a (click)="option='joinGame'" class="nav-link" [ngClass]="{'active': option=='joinGame'}"
+				href="javascript:void(0);">Join</a>
+		</li>
+		<!-- <li class="nav-item">
+			<a (click)="option='spectate'" class="nav-link" [ngClass]="{'active': option=='spectate'}"
+				href="javascript:void(0);">Spectate</a>
+		</li> -->
+		<li class="nav-item">
+			<a (click)="option='rejoinGame'" class="nav-link" [ngClass]="{'active': option=='rejoinGame'}"
+				href="javascript:void(0);">Rejoin</a>
+		</li>
+	</ul>
+	<p>
+		<div *ngIf="option!='rejoinGame'" class="row form-group">
+			<label class="control-label col-4" for="name">Name</label>
+			<div class="col-8">
+				<input required class="form-control" id="name" type="text" formControlName="name">
+					</div>
+			</div>
+			<div *ngIf="option!='newGame'" class="row form-group">
+				<label class="control-label col-4" for="gameId">Game ID</label>
+				<div class="col-8">
+					<input required min="0" class="form-control" id="gameId" type="number" formControlName="gameId"/>
+              </div>
+				</div>
+				<div *ngIf="option=='rejoinGame'" class="row form-group">
+					<label class="control-label col-4" for="rejoinCode">Rejoin code</label>
+					<div class="col-8">
+						<input required min="0" class="form-control" id="gameId" type="number" formControlName="rejoinCode"/>
+              </div>
+					</div>
+					<button class="btn btn-primary btn-lg btn-block" type="submit">{{buttonText()}}</button>
+</form>

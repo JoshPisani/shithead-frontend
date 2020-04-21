@@ -1,0 +1,38 @@
+<h3 class="text-center">{{gameService.whoseTurn()}} turn</h3>
+<div class="row">
+	<div class="col-8">
+		<div class="row">
+			<div class="top-card text-center col-8">
+				Card to beat
+				<div class="card">
+					<app-card-render [card]="gameService.context.game.lastFourCards[0]"></app-card-render>
+				</div>
+			</div>
+			<div class="previous-cards text-center col-4">
+				Previous
+				<div class="card">
+					<app-card-render [card]="gameService.context.game.lastFourCards[1]"></app-card-render>
+				</div>
+				<div class="card">
+					<app-card-render [card]="gameService.context.game.lastFourCards[2]"></app-card-render>
+				</div>
+				<div class="card">
+					<app-card-render [card]="gameService.context.game.lastFourCards[3]"></app-card-render>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-4 text-center">
+		<ul class="list-group">
+			<li class="list-group-item small details">deck: {{gameService.context.game.deckSize}}
+			</li>
+			<li class="list-group-item small details">pile: {{gameService.context.game.pileSize}}
+			</li>
+			<li class="list-group-item small details">discard: {{gameService.context.game.discarded}}
+			</li>
+			<li class="list-group-item small details">jokers: {{gameService.context.game.jokersLeft}}
+			</li>
+		</ul>
+	</div>
+</div>
+<app-messages [gameService]="gameService"> </app-messages>
