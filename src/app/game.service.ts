@@ -15,7 +15,7 @@ export class GameService {
   timeOut;
   spectateTimeOut;
   messages = [];
-  url = "https://2a892521.ngrok.io/";
+  url = "https://733c222c0a36.ngrok.io/";
   gameId;
   rejoinCode;
   constructor(private http: HttpClient) {}
