@@ -13,7 +13,7 @@
     "bootstrap": "4.4.1",
     "core-js": "2.6.11",
     "interval": "0.1.1",
-    "jquery": "3.4.1",
+    "jquery": "3.5.0",
     "popper.js": "1.16.1",
     "rxjs": "6.5.4",
     "rxjs-compat": "^6.5.4",
